@@ -11,14 +11,13 @@ async function main() {
   this.CollectionMinter = await ethers.getContractFactory("CollectionMinter")
   this.CollectionMinter = this.CollectionMinter.attach(process.env.CM)
 
-  //deploy a collection using collection minter
-  const tx = await this.CollectionMinter.createNewCollection(`${process.env.Json} `,
-  'NEON PET Collection V4','NEON',owner.address
-  )
+  // //deploy a collection using collection minter
+  // const tx = await this.CollectionMinter.createNewCollection(`${process.env.Json} `,
+  // 'NEON PET Collection V4','NEON',owner.address)
 
 
   //Get collection address
-  const NEONPETAddress = await this.CollectionMinter.getCollectionAddress(owner.address, 2)
+  const NEONPETAddress = await this.CollectionMinter.getCollectionAddress(owner.address, 1)
   console.log("NEON PET Collection deployed at:",NEONPETAddress)
   
   

@@ -6,12 +6,15 @@ async function main() {
 
   //get singers
   [owner, user1, user2, user3] = await ethers.getSigners()
-  
-  this.marketPlace = await ethers.getContractFactory('EmpireMarketplace')
-  this.marketPlace = await this.marketPlace.deploy(owner.address)
-  await this.marketPlace.deployed()
 
-  console.log('MarketPlace Deployed at:', this.marketPlace.address)
+  // We get the contract to deploy
+  this.ExchangeV4 = await ethers.getContractFactory("ExchangeV4")
+  
+  //deploy Quixotic MarketPlace
+  this.ExchangeV4 = await this.ExchangeV4.deploy()
+  await this.ExchangeV4.deployed()
+  console.log(`Quixotic  MarketPlace Deployed at:${this. ExchangeV4.address}`)
+
 
 }
 

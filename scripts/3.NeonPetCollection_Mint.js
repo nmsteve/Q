@@ -21,7 +21,7 @@ async function main() {
   //conect to deployed contracts
   this.CollectionMinter = this.CollectionMinter.attach(collectionMinterAddress)
   this.VasReward = this.VasReward.attach(vasRewardAddress)
-  const NEONPETCollectionAddress = await this.CollectionMinter.getCollectionAddress(owner.address, 2)
+  const NEONPETCollectionAddress = await this.CollectionMinter.getCollectionAddress(owner.address, 1)
   console.log(`NEONPET at ${NEONPETCollectionAddress}`) 
   this.collection = this.collection.attach(NEONPETCollectionAddress)
 
@@ -33,7 +33,7 @@ async function main() {
   await this.VasReward.approve(NEONPETCollectionAddress, parseEther('100000'))
   
   //mint        
-  await this.CollectionMinter.mintFromExistingCollection(1, vasRewardAddress, parseEther('0.001'), 2, 500)
+  await this.CollectionMinter.mintFromExistingCollection(1, vasRewardAddress, parseEther('0.001'), 1, 500)
 
 
   console.log(`NFTs Total supply: ${ await this.collection.totalSupply()}`)
