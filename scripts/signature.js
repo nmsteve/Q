@@ -38,29 +38,28 @@ let dataType = [
 
 let seller = process.env.ADDRESS0
 let contractAddress = process.env.NP
-let tokenId = 12
-let startTime = Math.floor(Date.now() / 1000) - 60 * 10
-let expiration = Math.floor(Date.now() / 1000) + 60 * 60 * 10
+let tokenId = BigInt(12)
+let startTime = BigInt(Math.floor(Date.now() / 1000) - 60 * 10)
+let expiration = BigInt(Math.floor(Date.now() / 1000) + 60 * 60 * 10)
 let price = utils.parseEther('0.001')
-//let price = 1*10**16
-let quantity = 1
-let createdAtBlockNumber = 30398292
+let quantity = BigInt(1)
+let createdAtBlockNumber = BigInt(30398292)
 let paymentERC20 = process.env.VR
 
 let value = [typeHash, seller, contractAddress,tokenId,startTime, expiration,price, quantity,createdAtBlockNumber, paymentERC20]
 
-//console.log("Values:",value.length)
+//console.log("Values:",value[0])
 
 //let fnParamsSellOrder = web3.eth.abi.encodeParameters(dataType,value);
 let abiCoder = new ethers.utils.AbiCoder()
 let encodeData = abiCoder.encode(dataType,value)
 
-let hashStruct = ethers.utils.keccak256(encodeData)
+let structHash = ethers.utils.keccak256(encodeData)
 
 
-console.log(`hashStruct: ${hashStruct } \n HashLenght ${hashStruct.length}`)
+console.log(`structHash off-chain: ${structHash } \n HashLenght ${structHash.length}`)
 
 
- module.exports = {hashStruct, value}
+ module.exports ={structHash, value}
 
 

@@ -348,29 +348,9 @@ contract sign{
     }
 
 
-    function _validateSellerSignature(SellOrder memory sellOrder, bytes memory signature) internal view returns (bool) {
+    function validateSellerSignature(address payable seller,address contractAddress,uint tokenId,uint startTime, uint expiration, uint price,uint quantity,uint createdAtBlockNumber, address paymentERC20, bytes memory signature ) external view returns(bool, address){
 
 
-        bytes32 structHash = keccak256(abi.encode(
-                SELLORDER_TYPEHASH,
-                sellOrder.seller,
-                sellOrder.contractAddress,
-                sellOrder.tokenId,
-                sellOrder.startTime,
-                sellOrder.expiration,
-                sellOrder.price,
-                sellOrder.quantity,
-                sellOrder.createdAtBlockNumber,
-                sellOrder.paymentERC20
-            ));
-
-        bytes32 digest = ECDSA.toTypedDataHash(DOMAIN_SEPARATOR, structHash);
-
-        address recoveredAddress = ECDSA.recover(digest, signature);
-        return recoveredAddress == sellOrder.seller;
-    }
-
-    function getSignature(address seller,address contractAddress,uint tokenId,uint startTime, uint expiration, uint price,uint quantity,uint createdAtBlockNumber, address paymentERC20) external view returns(bytes32) {
         bytes32 structHash = keccak256(abi.encode(
                 SELLORDER_TYPEHASH,
                 seller,
@@ -386,7 +366,28 @@ contract sign{
 
         bytes32 digest = ECDSA.toTypedDataHash(DOMAIN_SEPARATOR, structHash);
 
-        return digest;
+        address recoveredAddress = ECDSA.recover(digest, signature);
+        return (recoveredAddress == seller, recoveredAddress);
+    }
+
+    function getHash(address payable seller,address contractAddress,uint tokenId,uint startTime, uint expiration, uint price,uint quantity,uint createdAtBlockNumber, address paymentERC20) external view returns(bytes32,bytes32) {
+        
+        bytes32 structHash = keccak256(abi.encode(
+                SELLORDER_TYPEHASH,
+                seller,
+                contractAddress,
+                tokenId,
+                startTime,
+                expiration,
+                price,
+                quantity,
+                createdAtBlockNumber,
+                paymentERC20
+            ));
+
+        bytes32 digest = ECDSA.toTypedDataHash(DOMAIN_SEPARATOR, structHash);
+
+        return (structHash,digest);
 
 
 
