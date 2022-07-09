@@ -25,21 +25,20 @@ this.VAS = await ethers.getContractAt('VasReward',process.env.VR)
 this.NEON = await ethers.getContractAt("NeonPetCollection",process.env.NP)
 // //2. using attach
 // this.NEON = await ethers.getContractFactory("LaunchpadCollection"); 
-// this.NEON = this.NEONattach(NEONPETAddress)
+// this.NEON = this.NEON.attach(NEONPETAddress)
 
   
-// await this.NEON.connect(user1).setMaxTotalSupply(1000)
-// await this.NEON.connect(user1).setMintPriceInWei(utils.parseEther('1'))
-// await this.NEON.connect(user1).setMaxMintAmount(50)
-// await this.NEON.connect(user1).enableMinting() 
+//await this.NEON.connect(user1).setMaxTotalSupply(1000)
+//await this.NEON.connect(user1).setMintPriceInWei(utils.parseEther('1'))
+//await this.NEON.connect(user1).setMaxMintAmount(50)
+//await this.NEON.connect(user1).enableMinting() 
 
 
 //   //mint NFTs
 //await this.VAS.transfer(user2.address, utils.parseEther("1000") )
-await this.VAS.connect(user2).approve(this.NEON.address, utils.parseEther("21"))
-await this.NEON.connect(user2).mint(20, this.VAS.address)
+//await this.VAS.connect(user2).approve(this.NEON.address, utils.parseEther("21"))
+//await this.NEON.connect(user2).mint(20, this.VAS.address)
  
-
 
   
 }

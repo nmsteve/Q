@@ -31,8 +31,8 @@ console.log(`signature off-chain: ${signature} \n HashLenght ${signature.length}
 
 
 //let fnSignatureSellOrder = web3.utils.keccak256("SellOrder(address seller,address contractAddress,uint256 tokenId,uint256 startTime,uint256 expiration,uint256 price,uint256 quantity,uint256 createdAtBlockNumber,address paymentERC20)")
-let typeHash = ethers.utils.keccak256(utils.toUtf8Bytes("SellOrder(address seller,address contractAddress,uint256 tokenId,uint256 startTime,uint256 expiration,uint256 price,uint256 quantity,uint256 createdAtBlockNumber,address paymentERC20)"))
-//console.log(`typeHash: ${typeHash} \n HashLenght ${typeHash.length}`)
+let typeHash = ethers.utils.keccak256(utils.toUtf8Bytes("SellOrder(address seller,address contractAddress,uint256 tokenId,uint256 startTime,uint256 expiration,uint256 price,uint256 quantity,uint256 createdAtBlockNumber,address paymentERC20)")).substr(0,10)
+console.log(`typeHash: ${typeHash} \n HashLenght ${typeHash.length}`)
 
 
 // Encode the function parameters

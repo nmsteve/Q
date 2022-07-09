@@ -111,7 +111,8 @@ module.exports = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.POLYGON_MUMBAI_API_KEY,
+    //apiKey: process.env.POLYGON_MUMBAI_API_KEY,
+    apiKey: process.env.ETHERSCAN_API_KEY
   },
   
     solidity: {

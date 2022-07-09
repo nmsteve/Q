@@ -29,10 +29,10 @@ const types = {
 
 let seller = process.env.ADDRESS2
 let contractAddress = process.env.NP
-let tokenId = BigInt(1)
+let tokenId = BigInt(2)
 let startTime = 1657098127 // BigInt(Math.floor(Date.now() / 1000) - 60 * 10)
 let expiration = 1657445900 //BigInt(Math.floor(Date.now() / 1000) + 60 * 60 * 10)
-let price = utils.parseEther('0.001')
+let price = utils.parseEther('0.003')
 let quantity = BigInt(1)
 let createdAtBlockNumber = 30398292
 let paymentERC20 = process.env.VR

@@ -27,23 +27,25 @@ async function main() {
   this.sign = this.sign.attach(process.env.SG)
   this.NEONPETCollection = this.NEONPETCollection.attach(process.env.NP)
   
-//   this.sign = await this.sign.deploy()
-//   await this.sign.deployed()
-//   console.log(`sign generator deployed at:${this.sign.address}`)
-
-
-let signature = await user2._signTypedData(domain, types, values);
-console.log(`signature: ${signature} \n signature ${signature.length}`)
-// const result= await this.sign.validateSellerSignature(value[1],value[2],value[3],value[4], value[5], value[6],value[7], value[8], value[9], signature)
-// console.log('Valid? ',result)
-
  //set up
 //await this.ExchangeV4.setRegistryContracts(process.env.ER, process.env.CR,process.env.PR)
 //await this.PaymentERC20Registry.addApprovedERC20(process.env.VR)
 //await this.CancellationRegistry.addRegistrant(process.env.Q)
 //await this.ExchangeRegistry.addRegistrant(process.env.Q)
-//await this.ExchangeRegistry.addRegistrant(process.env.Q)
+//await this.ExchangeRegistry.removeRegistrant(process.env.Q)
 //await this.ExchangeV4.setRoyalty(process.env.NP, process.env.ADDRESS0, 100)
+//await  this.ExchangeV4.setMakerWallet(owner.address)
+
+  // this.sign = await this.sign.deploy()
+  // await this.sign.deployed()
+  // console.log(`sign generator deployed at:${this.sign.address}`)
+
+
+let signature = await user2._signTypedData(domain, types, values);
+// console.log(`signature: ${signature} \n signature ${signature.length}`)
+// const result= await this.sign.validateSellerSignature(value[1],value[2],value[3],value[4], value[5], value[6],value[7], value[8], value[9], signature)
+// console.log('Valid? ',result)
+
 
 //seller
 //await this.NEONPETCollection.connect(user2).setApprovalForAll(process.env.Q, true)
@@ -53,7 +55,7 @@ console.log(`signature: ${signature} \n signature ${signature.length}`)
 //await this.Vasrewards.connect(user3).approve(this.ExchangeV4.address, utils.parseEther('100'))
 
 //await 
-await this.ExchangeV4.fillSellOrder(value[1],value[2],value[3],value[4], value[5], value[6],value[7], value[8], value[9], signature, user3.address)
+await this.ExchangeV4.connect(user2).fillSellOrder(value[1],value[2],value[3],value[4], value[5], value[6],value[7], value[8], value[9], signature, user3.address)
 
 
 }
