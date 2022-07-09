@@ -42,9 +42,10 @@ console.log(`signature: ${signature} \n signature ${signature.length}`)
 //await this.PaymentERC20Registry.addApprovedERC20(process.env.VR)
 //await this.CancellationRegistry.addRegistrant(process.env.Q)
 //await this.ExchangeRegistry.addRegistrant(process.env.Q)
+//await this.ExchangeRegistry.addRegistrant(process.env.Q)
 //await this.ExchangeV4.setRoyalty(process.env.NP, process.env.ADDRESS0, 100)
 
-seller
+//seller
 //await this.NEONPETCollection.connect(user2).setApprovalForAll(process.env.Q, true)
 
 //buyer
