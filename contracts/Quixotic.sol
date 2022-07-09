@@ -1638,7 +1638,7 @@ contract ExchangeV4 is Ownable, Pausable, ReentrancyGuard {
             _checkValidERC20Payment(buyer, price, paymentERC20);
         }
 
-        SellOrder memory sellOrder = SellOrder(
+    SellOrder memory sellOrder = SellOrder(
             seller,
             contractAddress,
             tokenId,

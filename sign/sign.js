@@ -1,10 +1,6 @@
 const { utils } = require("ethers");
-const { ethers } = require("hardhat");
 
-async function main() {
 
-//get singers
-[owner, user1, user2, user3] = await ethers.getSigners()
 
 // All properties on a domain are optional
 const domain = {
@@ -30,17 +26,18 @@ const types = {
 
     ]
 };
-let seller = process.env.ADDRESS0
+
+let seller = process.env.ADDRESS2
 let contractAddress = process.env.NP
-let tokenId = BigInt(12)
-let startTime = BigInt(Math.floor(Date.now() / 1000) - 60 * 10)
-let expiration = BigInt(Math.floor(Date.now() / 1000) + 60 * 60 * 10)
+let tokenId = BigInt(1)
+let startTime = 1657098127 // BigInt(Math.floor(Date.now() / 1000) - 60 * 10)
+let expiration = 1657445900 //BigInt(Math.floor(Date.now() / 1000) + 60 * 60 * 10)
 let price = utils.parseEther('0.001')
 let quantity = BigInt(1)
 let createdAtBlockNumber = 30398292
 let paymentERC20 = process.env.VR
 
-let value = {   seller:seller, 
+let values = {   seller:seller, 
                 contractAddress:contractAddress,
                 tokenId:tokenId,
                 startTime:startTime,
@@ -51,15 +48,6 @@ let value = {   seller:seller,
                  paymentERC20:paymentERC20
             }
 
-const signature = await owner._signTypedData(domain, types, value);
+let value = [[],seller,contractAddress,tokenId,startTime,expiration,price,quantity,createdAtBlockNumber,paymentERC20]
 
-console.log(`signature: ${signature} \n signature ${signature.length}`)
-// '0x463b9c9971d1a144507d2e905f4e98becd159139421a4bb8d3c9c2ed04eb401057dd0698d504fd6ca48829a3c8a7a98c1c961eae617096cb54264bbdd082e13d1c'
-}
-
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+module.exports ={value, domain, types, values}

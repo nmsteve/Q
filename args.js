@@ -1,8 +1,14 @@
+const { ethers } = require("hardhat")
+
 
 
 module.exports = [
-  "https://ipfs.io/ipfs/QmYzEtYVeVRr9RwuXXcif3TaozM6QXfdwPzSCPK33kQz6j/",
-  'NEON PET Collection',
-  'N-PET',
-   '0xdd305DCf8C019B2E89cCEcfeDD80093726F611EF'
+   'NEON PET Collection',
+   'NEON',
+   'https://ipfs.io/ipfs/QmZQjYRMvZzAoCwjXnYka18gaxJQLhRwjuGBwJSMnrHuKm/ ',
+  '0x98A6EeF34b345531926737E20B150781c137E89c'
 ]
+
+// module.exports = [
+//   'Vas Rewards','VAS', ethers.utils.parseEther('1000000000')
+//   ]
