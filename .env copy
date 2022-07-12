@@ -1,0 +1,63 @@
+
+Enter your address
+
+ADDRESS0=0xdd305DCf8C019B2E89cCEcfeDD80093726F611EF
+ADDRESS1=0x98A6EeF34b345531926737E20B150781c137E89c
+ADDRESS2=0x42712A092965D12B2D47B884DBB0107B1d785814
+ADDRESS3=0x0eA3eda55f4153bA9f27cF9b1A34b38087789d3F
+
+ETHERSCAN_API_KEY=
+POLYGON_MUMBAI_API_KEY=
+
+
+GOERII_URL_AlCHEMY=https://eth-goerli.alchemyapi.io/v2/<You Key>
+
+MNEMONIC=""
+
+
+ipfs url
+
+NEONPET 1-50: 
+Images=https://ipfs.io/ipfs/QmdutXFii1Wb9VDW36eFtabJ2W5WH4jQ1JfSLDd27uRk8P/
+Json=https://ipfs.io/ipfs/QmZQjYRMvZzAoCwjXnYka18gaxJQLhRwjuGBwJSMnrHuKm/
+eternallink="https://drive.google.com/drive/folders/1wjI8PgnPXlqpvUdAk4kK7NMEclt5fqEL"
+
+
+Enter your deployment address below
+
+goerli
+
+Quixotic  MarketPlace Deployed at:
+Q=0x75f1066ed88d40B5F152ecbA1616B214E9c0ee0e
+CancellationRegistry  Deployed at:
+CR=0x7AbFE4B0F73790476aF5fAA3A607595b472157a3
+PaymentERC20Registry  Deployed at:
+PR=0xc963057Aad766164c014FE692dB5138C93E2caA0
+ExchangeRegistry Deployed at:
+ER=0xd4bbB53738C3DFA5a2C333dC5358078a96Fd848c
+sign generator deployed at:
+SG=0xFe15548346a928b51f042872B5D4f6C5B5Bc6060
+
+VAS Rewards Deployed at:
+VR=0xf8Ad583a7fb54093495ea1670EeaE101C012cD32
+NEON PET Collection deployed at: 
+NP= 0x357e67d1283f82A0eC35F21BfFdA343cC7f0B66A
+NP2=0xDD1220876be1E01C0E3A486D4f2A563e01992dd6
+NP3=0xb4e10ad5cC077DDa7e12D7506118F34da1d3159B
+
+
+
+
+npx hardhat run  scripts/deploy.js  --network ropsten
+
+npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
+npx hardhat verify --network mumbai 0x74f966e54358b84220519A5e704455AE82a085aF
+
+npx hardhat verify  --network mumbai   :0xDD1220876be1E01C0E3A486D4f2A563e01992dd6 --constructor-args args.js
+
+./ipfs-upload-client --id 2AzAIoxmTWq2NKIKvaQxb8rUssW --secret 258fb187ed4e2ed75bda1ced94824541 /home/steve/Documents/Dapps/NFT/metadata/hidden
+
+
+
+
+
